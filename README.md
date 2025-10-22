@@ -5,50 +5,59 @@
 
 ---
 
-## Public report & proof files (current)
+## 📁 Public report & proof files (current)
 
-* Full report (PDF converted from original PowerPoint):
-  [https://github.com/hacker123as/classkick-vuln-disclosure-2025/blob/main/I%20Cracked%20Classkick_%20My%20Story.pdf](https://github.com/hacker123as/classkick-vuln-disclosure-2025/blob/main/I%20Cracked%20Classkick_%20My%20Story.pdf)
+* **Full report (PDF):**
+  [I Cracked Classkick: My Story.pdf](https://github.com/hacker123as/classkick-vuln-disclosure-2025/blob/main/I%20Cracked%20Classkick_%20My%20Story.pdf)
 
-* Classkick support reply (screenshot):
-  [https://github.com/hacker123as/classkick-vuln-disclosure-2025/blob/main/classkickemail.png](https://github.com/hacker123as/classkick-vuln-disclosure-2025/blob/main/classkickemail.png)
-  (Raw image: [https://raw.githubusercontent.com/hacker123as/classkick-vuln-disclosure-2025/refs/heads/main/classkickemail.png](https://raw.githubusercontent.com/hacker123as/classkick-vuln-disclosure-2025/refs/heads/main/classkickemail.png))
+* **Classkick support reply (screenshot):**
+  [classkickemail.png](https://github.com/hacker123as/classkick-vuln-disclosure-2025/blob/main/classkickemail.png)
 
-I will update these links/files if anything else comes out.
+**Embedded preview (screenshot)**
 
----
+![Classkick support reply screenshot](https://raw.githubusercontent.com/hacker123as/classkick-vuln-disclosure-2025/refs/heads/main/classkickemail.png)
 
-## Why this is a 0-day (and why it matters)
+> NOTE: You can click the image above to open the original screenshot on GitHub.
 
-* **0-day definition (context):** In vulnerability terms, a “0-day” is an issue that is unknown to the vendor or has no available public fix at the time of disclosure. This issue fits the 0-day definition because it was discovered by the author, disclosed responsibly to Classkick, and—at the time of the public notes below—no public patch or mitigation has been confirmed.
+**Embedded link to the PDF (preview link)**
 
-* **Why this particular issue is critical:**
+You can preview the PDF in GitHub directly by clicking the report link above. For quick access:
 
-  * It directly exposes correct answers to clients during normal usage flows. That means the platform is effectively revealing the solution data to the same devices that students use to answer questions. This turns the platform’s normal traffic into a vector for bypassing academic integrity.
-  * The exploit requires only basic browser developer tools (F12) and minimal JavaScript knowledge: no privileged access or advanced tooling required.
-  * Because the vulnerability affects text-input and fill-in-the-blank question types platform-wide, the impact surface is large and affects every class, quiz, and assessment that uses those question types.
-  * Detection is difficult under the current architecture because the communication looks like normal client-server traffic; server-side logs or checks may not flag it as suspicious.
-
-* **Potential real-world harms:**
-
-  * Widespread cheating or automated answer-filling across classes and schools.
-  * Loss of trust in digital assessment platforms and possible academic consequences for students.
-  * Unintended exposure of teacher-provided answers and question metadata.
+[I Cracked Classkick: My Story (PDF) — open in GitHub](https://github.com/hacker123as/classkick-vuln-disclosure-2025/blob/main/I%20Cracked%20Classkick_%20My%20Story.pdf)
 
 ---
 
-## Summary (sanitized)
+## 🔥 Why this is a 0-day (and why it matters)
 
-* **Vulnerability:** Answer Interception / Automatic Correct Answer Disclosure (text inputs).
-* **Severity:** High to Critical.
-* **Impact:** The platform sends correct answers in client-server traffic in a way that can be observed by clients, enabling automated filling of correct answers.
-* **Exploitability:** Basic browser developer tools and minimal JavaScript knowledge.
+**0-day explained (simple analogy):** Imagine a wall built from many bricks. Most of the time the wall stands because every brick is in place. A **0-day** is like discovering that **one brick is missing** — a single overlooked weak point that nobody noticed. If you poke or remove any other key brick, the wall can collapse. That missing brick gives someone a way to break the wall. In security terms: a 0-day is a vulnerability that **the vendor has not yet fixed** and that attackers could use immediately.
+
+**Why this issue fits that description:**
+
+* It was discovered by the author and responsibly disclosed to Classkick, but no public patch or mitigation had been confirmed as of the dates below — so it qualifies as a 0-day at that time. ⚠️
+* The vulnerability exposes correct answers in normal client-server traffic, effectively revealing the solution to the same students using the system.
+* Exploitable with only basic browser dev tools and minimal JavaScript knowledge — no advanced access needed.
+* Wide impact: affects all fill-in-the-blank / text-input question types platform-wide.
+
+**Real-world consequences:**
+
+* Automated cheating and loss of academic integrity 📉
+* Potential reputational damage to schools and to the platform 🏫
+* Teacher answers and assessment integrity exposed
+
+---
+
+## 📝 Summary (sanitized)
+
+* **Vulnerability:** Answer Interception / Automatic Correct Answer Disclosure (text inputs)
+* **Severity:** High — Critical
+* **Impact:** Correct answers are transmitted in a way that clients can observe and use
+* **Exploitability:** Basic browser developer tools + simple JavaScript
 
 > Technical exploit details and proof-of-concept code are intentionally **NOT** published here to avoid enabling abuse.
 
 ---
 
-## What I sent to Classkick (redacted)
+## ✉️ What I sent to Classkick (redacted)
 
 (Identifying fields have been redacted to protect privacy.)
 
@@ -74,31 +83,24 @@ I will update these links/files if anything else comes out.
 
 ---
 
-## Timeline (select entries & dates)
+## 📅 Timeline (select entries & dates)
 
-* **Oct 17, 2025** — Initial responsible disclosure email sent to Classkick Security (ticket #109739), attached full report (PDF).
-* **Oct 20, 2025** — Classkick Support replied: "We are not currently hiring/paying for this externally. We are aware of this and are working to improve this. We thank you for your feedback." (see `classkickemail.png`).
-* **Oct 22, 2025** — Vulnerability still reproducible according to the author's tests; public notes and files uploaded to this repository for transparency.
+* **Oct 17, 2025 — 11:26 PM CDT** — Initial responsible disclosure email sent to Classkick Security (ticket #109739), attached full report (PDF).
+* **Oct 20, 2025 — 10:43 AM CDT** — Classkick Support replied: *"We are not currently hiring/paying for this externally. We are aware of this and are working to improve this. We thank you for your feedback."* (see screenshot above).
+* **Oct 22, 2025** — Vulnerability still reproducible according to the author's tests; documented as a public 0-day disclosure in this repo.
 
-> I will update this timeline and the repository if Classkick publishes a patch, replies with more details, or if I receive any other meaningful responses.
+> I will update this timeline and the repository if Classkick publishes a patch, replies with more details, or if I receive any other meaningful responses. 🔁
 
 ---
 
-## Correspondence / attachments
-
-Files in this repo include a `correspondence/` folder with redacted email text and screenshots. Current public files:
+## 📂 Current public files in this repo
 
 * `I Cracked Classkick_ My Story.pdf` (report PDF)
 * `classkickemail.png` (support reply screenshot)
 
-Example filenames to expect in `correspondence/`:
-
-* `correspondence/2025-10-17-disclosure-email-redacted.txt`
-* `correspondence/2025-10-20-classkick-reply.png`
-
 ---
 
-## Responsible disclosure & contact
+## 🔒 Responsible disclosure & contact
 
 If you are a vendor, security team, or other trusted party and need the technical report, contact me at:
 
@@ -108,18 +110,14 @@ I will require a vetted contact and agreement to handle the report confidentiall
 
 ---
 
-## Why I published this repo
+## ❓ Why I published this repo
 
-* To document the responsible disclosure attempt and provide public evidence that I notified Classkick.
+* To document the responsible disclosure attempt and provide public evidence that I notified Classkick. ✅
 * To maintain a factual log of correspondence and dates.
 
 ---
 
-## Current status
+## 📌 Current status
 
-* This is a documented 0-day disclosure as of **Oct 22, 2025**. I will update this repository with new dates, responses, or patch confirmations if/when they happen.
-* Public files currently hosted in this repo: the PDF report and Classkick reply screenshot (links above).
-
----
-
-*If you want additional redactions, formatting changes, or a generated `SECURITY.md` with a private-reporting process, tell me and I will add them to the repo content.*
+* Documented as a 0-day disclosure as of **Oct 22, 2025**. I will update this repository with new dates, responses, or patch confirmations if/when they occur.
+* Public files currently hosted in this repo: the PDF report and Classkick reply screenshot (links and preview above).
